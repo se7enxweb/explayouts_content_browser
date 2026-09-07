@@ -15,6 +15,7 @@ class expLayoutsContentBrowserItem
     public $ownerName;
     public $sectionId;
     public $path;
+    public $pathWithNames;
     public $urlAlias;
 
     public function __construct( eZContentObjectTreeNode $node )
@@ -24,6 +25,7 @@ class expLayoutsContentBrowserItem
         $this->objectId = (int)$node->attribute( 'contentobject_id' );
         $this->name = (string)$node->attribute( 'name' );
         $this->path = (string)$node->attribute( 'path_string' );
+        $this->pathWithNames = (string)$node->attribute( 'path_with_names' );
         $this->urlAlias = (string)$node->attribute( 'url_alias' );
         $this->isMainNode = (int)$node->attribute( 'node_id' ) === (int)$node->attribute( 'main_node_id' );
 
@@ -70,6 +72,7 @@ class expLayoutsContentBrowserItem
             'owner_name' => $this->ownerName,
             'section_id' => $this->sectionId,
             'path' => $this->path,
+            'path_with_names' => $this->pathWithNames,
             'url_alias' => $this->urlAlias,
         );
     }
